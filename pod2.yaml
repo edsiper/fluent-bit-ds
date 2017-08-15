@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-ns2
+  namespace: ns2
+spec:
+  containers:
+  - name: count
+    image: busybox
+    args: [/bin/sh, -c,
+	     'for i in $(seq 1000); do echo "[ns2] $i => val=$RANDOM"; done && sleep 36000']
